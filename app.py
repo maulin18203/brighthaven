@@ -51,8 +51,17 @@ app.config['PERMANENT_SESSION_LIFETIME'] = 86400  # 24 hours
 
 
 # ─── FIREBASE ─────────────────────────────────────────────────────────────────
-firebase_key_path = os.getenv('FIREBASE_KEY_PATH', 'firebase_key.json')
-cred = credentials.Certificate(firebase_key_path)
+# ─── FIREBASE ─────────────────────────────────────────────────────────────────
+firebase_creds = os.getenv("FIREBASE_CREDENTIALS")
+
+if firebase_creds:
+    # Render deployment (credentials stored as env variable)
+    cred_dict = json.loads(firebase_creds)
+    cred = credentials.Certificate(cred_dict)
+else:
+    # Local development (use JSON file)
+    cred = credentials.Certificate("firebase_key.json")
+
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
