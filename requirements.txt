@@ -1,0 +1,6 @@
+flask
+firebase-admin
+requests
+paho-mqtt
+python-dotenv
+gunicorn

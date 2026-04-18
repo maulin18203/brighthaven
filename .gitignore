@@ -1,0 +1,28 @@
+# ─── BrightHaven .gitignore ───────────────────────────────────────────────────
+
+# Secrets
+firebase_key.json
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Logs
+flask_error.log
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
